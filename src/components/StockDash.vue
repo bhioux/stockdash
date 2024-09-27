@@ -1,12 +1,17 @@
 <template>
-    <h1>{{ welcome }}</h1>
+    <div>
+        <h1 v-bind:title="appname">{{ welcome }}</h1>
+        <h3>This is the {{ appname }} app</h3>
+    </div>
+    
 </template>
 
 <script>
 export default {
     props: [
         'welcome',
-    ]
+    ],
+    inject: ['appname']
 }
 </script>
 

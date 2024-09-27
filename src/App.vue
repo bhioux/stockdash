@@ -3,9 +3,22 @@
     <StockDash welcome='You are welcome to stock dashboard' />
     <StockTitle />
     <StockSearch @dosearch="searchStock" />
+    <Input v-model="name" />
     <table>
       <StockList v-for="stock in filteredStock" :key="stock.id"  :symbol="stock.symbol" :open="stock.open" :high="stock.high" :low="stock.low" :close="stock.close" :adjclose="stock.adjclose" :volume="stock.volume"  />
     </table>
+    <Card>
+      <template v-slot:header>
+          <h2>Image Viewer</h2>
+      </template>
+      <template v-slot:default>
+        <img src="https://picsum.photos/300" />
+      </template>
+      <template v-slot:footer>
+        <h4>Lovely image courtesy: Picsum photos</h4>
+      </template>
+      
+    </Card>
   </div>
   
 </template>
@@ -16,6 +29,9 @@ import StockDash from "./components/StockDash.vue";
 import StockTitle from "./components/StockTitle.vue";
 import StockList from "./components/StockList.vue";
 import StockSearch from "./components/StockSearch.vue";
+import Input from "./components/Input.vue";
+import Card from "./components/Card.vue";
+
 
 export default {
   components: {
@@ -23,6 +39,8 @@ export default {
     StockTitle,
     StockSearch,
     StockList,    
+    Input,
+    Card,
   },
   data(){
     return{
@@ -97,7 +115,8 @@ export default {
             ],
       'filteredStock': [],
       'result':[],
-      s:''
+      s:'',
+      name: ''
         
     }
   },
@@ -133,6 +152,9 @@ export default {
       },
       immediate: true
     }
+  },
+  provide: {
+    appname: 'Stock Dash'
   }
 }
 </script>
