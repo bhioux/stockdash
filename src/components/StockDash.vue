@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 v-bind:title="appname">{{ welcome }}</h1>
+        <h1 :title="appname">{{ welcome }}</h1>
         <h3>This is the {{ appname }} app</h3>
     </div>
     

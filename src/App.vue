@@ -7,18 +7,20 @@
     <table>
       <StockList v-for="stock in filteredStock" :key="stock.id"  :symbol="stock.symbol" :open="stock.open" :high="stock.high" :low="stock.low" :close="stock.close" :adjclose="stock.adjclose" :volume="stock.volume"  />
     </table>
-    <Card>
-      <template v-slot:header>
-          <h2>Image Viewer</h2>
+    <hr />
+    <!-- <Card>
+      <template v-slot:header="slotProps">
+          <h2>{{ slotProps.cardtype }}</h2>
       </template>
       <template v-slot:default>
         <img src="https://picsum.photos/300" />
       </template>
       <template v-slot:footer>
         <h4>Lovely image courtesy: Picsum photos</h4>
-      </template>
-      
-    </Card>
+      </template>      
+    </Card> -->
+    <hr />
+    <PostList />
   </div>
   
 </template>
@@ -30,7 +32,8 @@ import StockTitle from "./components/StockTitle.vue";
 import StockList from "./components/StockList.vue";
 import StockSearch from "./components/StockSearch.vue";
 import Input from "./components/Input.vue";
-import Card from "./components/Card.vue";
+// import Card from "./components/Card.vue";
+import PostList from "./components/PostList.vue";
 
 
 export default {
@@ -40,7 +43,8 @@ export default {
     StockSearch,
     StockList,    
     Input,
-    Card,
+    // Card,
+    PostList,
   },
   data(){
     return{
@@ -168,6 +172,10 @@ export default {
         border:1px solid blue;
         border-collapse:collapse;
         box-shadow: 4px 4px red;
+    }
+
+    hr{
+      margin: 30px 0;
     }
 
 

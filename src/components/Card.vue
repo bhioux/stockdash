@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <slot name="header"></slot>
+    <slot name="header" :cardtype="cardtype"></slot>
     <slot></slot>
     <slot name="footer"></slot>
   </div>
@@ -8,7 +8,12 @@
 
 <script>
 export default {
-
+    name: 'Card',
+    data(){
+        return {
+            cardtype:'My Image Viewer',
+        }
+    }
 }
 </script>
 
